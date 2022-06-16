@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MSBL Calculator",
+  "name": "Stat Calculator for Mario Strikers: Battle League",
   "icons": [
     {
       "src": "favicon.ico",
