@@ -20,8 +20,9 @@ const App = () => {
   const [mychest, setChest] = useState(Chest.None);
   const [myshoes, setShoes] = useState(Shoes.None);
   const [myBuild, setBuild] = useState(9999);
+  const [gearRec, setRec] = useState([Gloves.None,Gloves.None,Gloves.None,Gloves.None])
  
-
+  const emptyBuild=[Gloves.None,Gloves.None,Gloves.None,Gloves.None]
   const helm=[Head.Muscle,Head.Turbo,Head.Cannon,Head.Chain,Head.Trick,Head.Bushido]
   const arms=[Gloves.Muscle,Gloves.Turbo,Gloves.Cannon,Gloves.Chain,Gloves.Trick,Gloves.Bushido]
   const body=[Chest.Muscle,Chest.Turbo,Chest.Cannon,Chest.Chain,Chest.Trick,Chest.Bushido]
@@ -37,6 +38,7 @@ const App = () => {
     setGloves(Gloves.None)
     setChest(Chest.None)
     setShoes(Shoes.None)
+    setBuild(9999)
   }
   function updateGloves(glove) {
     setGloves(glove)
@@ -71,6 +73,7 @@ const App = () => {
     stats[2]=(char.Shooting+helmet.Stats[2]+gloves.Stats[2]+chest.Stats[2]+shoes.Stats[2])
     stats[3]=(char.Passing+helmet.Stats[3]+gloves.Stats[3]+chest.Stats[3]+shoes.Stats[3])
     stats[4]=(char.Tech+helmet.Stats[4]+gloves.Stats[4]+chest.Stats[4]+shoes.Stats[4])
+    setBuild(1000*buildHelmet(helmet)+100*buildArms(gloves)+10*buildBody(chest)+buildLegs(shoes))
     return stats;
   }
 
@@ -123,6 +126,7 @@ const App = () => {
   }
 
   function findBuild(strength,speed,shooting,passing,technique) {
+    console.log(strength)
     let builds =[];
     let s = []
     let count = 0;
@@ -138,6 +142,11 @@ const App = () => {
           }
         }
       }
+    }
+    if(builds.length===0){
+      setRec(emptyBuild)
+    } else {
+      setRec(builds[0])
     }
     return builds
   }
@@ -242,6 +251,44 @@ const App = () => {
     <th><button onClick={()=> updateShoes(Shoes.Bushido)}>Bushido Boots</button></th>
   </tr>
 </tbody>
+        </table>
+
+        <br></br>
+        <br></br>
+
+        <table>
+          <tr>
+            <th>Strength</th>
+              <th>Speed</th>
+              <th>Shooting</th>
+              <th>Passing</th>
+              <th>Technique</th>
+          </tr>
+          <tr>
+            <th><input type="number" id="inputStr"></input></th>
+            <th><input type="number" id="inputSpd"></input></th>
+            <th><input type="number" id="inputSht"></input></th>
+            <th><input type="number" id="inputPas"></input></th>
+            <th><input type="number" id="inputTch"></input></th>
+          </tr>
+          <tr><button onClick={()=> findBuild(document.getElementById("inputStr").value,document.getElementById("inputSpd").value,document.getElementById("inputSht").value,document.getElementById("inputPas").value,document.getElementById("inputTch").value)}>Calculate Build</button></tr>
+
+        </table>
+
+        <table>
+            <tr>
+              <th>Gloves</th>
+              <th>Arms</th>
+              <th>Body</th>
+              <th>Legs</th>
+             </tr>
+             <tr>
+              <th>{gearRec[0].Name}</th>
+              <th>{gearRec[1].Name}</th>
+              <th>{gearRec[2].Name}</th>
+              <th>{gearRec[3].Name}</th>
+             </tr>
+
         </table>
       </div>
     </>
