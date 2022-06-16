@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.574039d5.css","mappings":"AAAA,YACI,qBAAuB,CACvB,wBACF","sources":["App.css"],"sourcesContent":["table, th, td {\r\n    border: 1px solid black;\r\n    border-collapse: collapse;\r\n  }"],"names":[],"sourceRoot":""}
