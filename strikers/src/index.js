@@ -7,7 +7,7 @@ import Chest from './ChestGear'
 import Gloves from './GloveGear'
 import Shoes from './ShoeGear'
 
-
+//TODO: Move the component to it's own file so this isn't so huge
 const App = () => {
   const [myChar, setCharacter] = useState(Roster.Boom)
   const [str, setStrength] = useState(myChar.Strength);
