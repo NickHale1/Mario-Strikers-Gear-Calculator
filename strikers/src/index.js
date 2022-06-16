@@ -19,6 +19,7 @@ const App = () => {
   const [mygloves, setGloves] = useState(Gloves.None);
   const [mychest, setChest] = useState(Chest.None);
   const [myshoes, setShoes] = useState(Shoes.None);
+  const [myBuild, setBuild] = useState(9999);
  
   function setChar(char){
     setCharacter(char)
@@ -54,7 +55,60 @@ const App = () => {
     setShooting(char.Shooting+helmet.Stats[2]+gloves.Stats[2]+chest.Stats[2]+shoes.Stats[2])
     setPassing(char.Passing+helmet.Stats[3]+gloves.Stats[3]+chest.Stats[3]+shoes.Stats[3])
     setTechnique(char.Tech+helmet.Stats[4]+gloves.Stats[4]+chest.Stats[4]+shoes.Stats[4])
+    setBuild(1000*buildHelmet(helmet)+100*buildArms(gloves)+10*buildBody(chest)+buildLegs(shoes))
   }
+
+  function buildHelmet(helmet) {
+    switch(helmet.Name) {
+      case "Muscle": return 1;
+      case "Turbo": return 2;
+      case "Cannon": return 3;
+      case "Chain": return 4;
+      case "Trick": return 5;
+      case "Bushido": return 6;
+      default: return 9;
+    }
+  }
+
+  function buildArms(arms){
+    switch(arms.Name) {
+      case "Muscle": return 1;
+      case "Turbo": return 2;
+      case "Cannon": return 3;
+      case "Chain": return 4;
+      case "Trick": return 5;
+      case "Bushido": return 6;
+      default: return 9;
+    }
+  }
+
+  function buildBody(body){
+    switch(body.Name) {
+      case "Muscle": return 1;
+      case "Turbo": return 2;
+      case "Cannon": return 3;
+      case "Chain": return 4;
+      case "Trick": return 5;
+      case "Bushido": return 6;
+      default: return 9;
+    }
+  }
+
+  function buildLegs(legs) {
+    switch(legs.Name) {
+      case "Muscle": return 1;
+      case "Turbo": return 2;
+      case "Cannon": return 3;
+      case "Chain": return 4;
+      case "Trick": return 5;
+      case "Bushido": return 6;
+      default: return 9;
+    }
+  }
+
+
+
+
 
 
   function setCount() {
@@ -63,7 +117,8 @@ const App = () => {
 
   return (
     <>
-      <h1>Your character is: {myChar.name}</h1> 
+      <h1>Your character is: {myChar.name}</h1>
+      <p>Build Code: {myBuild}</p> 
       <hr />
       <table>
             <tr>
