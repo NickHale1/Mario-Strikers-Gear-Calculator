@@ -21,6 +21,11 @@ const App = () => {
   const [myshoes, setShoes] = useState(Shoes.None);
   const [myBuild, setBuild] = useState(9999);
  
+
+  const helm=[Head.Muscle,Head.Turbo,Head.Cannon,Head.Chain,Head.Trick,Head.Bushido]
+  const arms=[Gloves.Muscle,Gloves.Turbo,Gloves.Cannon,Gloves.Chain,Gloves.Trick,Gloves.Bushido]
+  const body=[Chest.Muscle,Chest.Turbo,Chest.Cannon,Chest.Chain,Chest.Trick,Chest.Bushido]
+  const legs=[Shoes.Muscle,Shoes.Turbo,Shoes.Cannon,Shoes.Chain,Shoes.Trick,Shoes.Bushido]
   function setChar(char){
     setCharacter(char)
     setStrength(char.Strength)
@@ -50,12 +55,23 @@ const App = () => {
     updateGear(myChar,myhelmet,mygloves,mychest,shoe)
   }
   function updateGear(char,helmet,gloves,chest,shoes) {
-    setStrength(char.Strength+helmet.Stats[0]+gloves.Stats[0]+chest.Stats[0]+shoes.Stats[0])
-    setSpeed(char.Speed+helmet.Stats[1]+gloves.Stats[1]+chest.Stats[1]+shoes.Stats[1])
-    setShooting(char.Shooting+helmet.Stats[2]+gloves.Stats[2]+chest.Stats[2]+shoes.Stats[2])
-    setPassing(char.Passing+helmet.Stats[3]+gloves.Stats[3]+chest.Stats[3]+shoes.Stats[3])
-    setTechnique(char.Tech+helmet.Stats[4]+gloves.Stats[4]+chest.Stats[4]+shoes.Stats[4])
+    let newStats=calculateGear(char,helmet,gloves,chest,shoes)
+    setStrength(newStats[0])
+    setSpeed(newStats[1])
+    setShooting(newStats[2])
+    setPassing(newStats[3])
+    setTechnique(newStats[4])
     setBuild(1000*buildHelmet(helmet)+100*buildArms(gloves)+10*buildBody(chest)+buildLegs(shoes))
+  }
+
+  function calculateGear(char,helmet,gloves,chest,shoes){
+    let stats = [0,0,0,0,0]
+    stats[0]=(char.Strength+helmet.Stats[0]+gloves.Stats[0]+chest.Stats[0]+shoes.Stats[0])
+    stats[1]=(char.Speed+helmet.Stats[1]+gloves.Stats[1]+chest.Stats[1]+shoes.Stats[1])
+    stats[2]=(char.Shooting+helmet.Stats[2]+gloves.Stats[2]+chest.Stats[2]+shoes.Stats[2])
+    stats[3]=(char.Passing+helmet.Stats[3]+gloves.Stats[3]+chest.Stats[3]+shoes.Stats[3])
+    stats[4]=(char.Tech+helmet.Stats[4]+gloves.Stats[4]+chest.Stats[4]+shoes.Stats[4])
+    return stats;
   }
 
   function buildHelmet(helmet) {
@@ -106,12 +122,24 @@ const App = () => {
     }
   }
 
-
-
-
-
-
-  function setCount() {
+  function findBuild(strength,speed,shooting,passing,technique) {
+    let builds =[];
+    let s = []
+    let count = 0;
+    for(const head of helm){
+      for(const arm of arms) {
+        for(const bod of body){
+          for(const leg of legs){
+            s =calculateGear(myChar,head,arm,bod,leg)
+            if(s[0]>=strength&&s[1]>=speed&&s[2]>=shooting&&s[3]>=passing&&s[4]>=technique){
+              builds[count]=[head,arm,bod,leg]
+              count++
+            }
+          }
+        }
+      }
+    }
+    return builds
   }
 
 
