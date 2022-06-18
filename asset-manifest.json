@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Mario-Strikers-Gear-Calculator/static/css/main.a41afacd.css",
-    "main.js": "/Mario-Strikers-Gear-Calculator/static/js/main.b0da5dcc.js",
+    "main.css": "/Mario-Strikers-Gear-Calculator/static/css/main.d0c9af4a.css",
+    "main.js": "/Mario-Strikers-Gear-Calculator/static/js/main.83b736a3.js",
     "index.html": "/Mario-Strikers-Gear-Calculator/index.html",
-    "main.a41afacd.css.map": "/Mario-Strikers-Gear-Calculator/static/css/main.a41afacd.css.map",
-    "main.b0da5dcc.js.map": "/Mario-Strikers-Gear-Calculator/static/js/main.b0da5dcc.js.map"
+    "main.d0c9af4a.css.map": "/Mario-Strikers-Gear-Calculator/static/css/main.d0c9af4a.css.map",
+    "main.83b736a3.js.map": "/Mario-Strikers-Gear-Calculator/static/js/main.83b736a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.a41afacd.css",
-    "static/js/main.b0da5dcc.js"
+    "static/css/main.d0c9af4a.css",
+    "static/js/main.83b736a3.js"
   ]
 }
