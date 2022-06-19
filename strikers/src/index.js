@@ -7,8 +7,13 @@ import Chest from './ChestGear'
 import Gloves from './GloveGear'
 import Shoes from './ShoeGear'
 
+
+
 //TODO: Move the component to it's own file so this isn't so huge
 const App = () => {
+  //my char constant
+  //my gear constant
+  //my recommend consant
   const [myChar, setCharacter] = useState(Roster.Boom)
   const [str, setStrength] = useState(myChar.Strength);
   const [spd, setSpeed] = useState(myChar.Speed);
@@ -58,6 +63,11 @@ const App = () => {
   }
   function updateGear(char,helmet,gloves,chest,shoes) {
     let newStats=calculateGear(char,helmet,gloves,chest,shoes)
+    for(let i=0; i<newStats.length;i++){
+      if(newStats[i]>25){
+        newStats[i]=25
+      }
+    }
     setStrength(newStats[0])
     setSpeed(newStats[1])
     setShooting(newStats[2])
@@ -125,6 +135,8 @@ const App = () => {
     }
   }
 
+
+
   function findBuild(strength,speed,shooting,passing,technique) {
     console.log(strength)
     let builds =[];
@@ -151,18 +163,31 @@ const App = () => {
     return builds
   }
 
+  function formatNum(num) {
+    if(num===0){
+      return ""
+    } else if (num<0){
+      return num.toString()
+    } else {
+      return ("+ "+num)
+    }
+  }
+
 
   return (
-    <>
+    <div class="body">
+   
+<button class="button-5" role="button">Button 5</button>
       <h1>Your character is: {myChar.name}</h1>
+      <img src={myChar.img} class="centerImage"></img>
       <p>Build Code: {myBuild}</p> 
-      <hr />
-      <table>
+      <hr/>
+      <table class="center">
             <tr>
-              <th>Helmet</th>
-              <th>Gloves</th>
-              <th>Chest</th>
-              <th>Shoes</th>
+              <th>Head</th>
+              <th>Arms</th>
+              <th>Body</th>
+              <th>Legs</th>
              </tr>
              <tr>
               <th>{myhelmet.Name}</th>
@@ -172,10 +197,12 @@ const App = () => {
              </tr>
 
         </table>
-      <div>
-        
-      <table>
+      
+        <br></br>
+      
+      <table class="center">
             <tr>
+              <th></th>
               <th>Strength</th>
               <th>Speed</th>
               <th>Shooting</th>
@@ -183,24 +210,68 @@ const App = () => {
               <th>Technique</th>
              </tr>
              <tr>
+              <th>Base Stats</th>
+              <th>{myChar.Strength}</th>
+              <th>{myChar.Speed}</th>
+              <th>{myChar.Shooting}</th>
+              <th>{myChar.Passing}</th>
+              <th>{myChar.Tech}</th>
+             </tr>
+             <tr>
+              <th>With gear</th>
               <th>{str}</th>
               <th>{spd}</th>
               <th>{shoot}</th>
               <th>{pass}</th>
               <th>{tech}</th>
              </tr>
+             <tr>
+              <td>Head</td>
+              <td>{formatNum(myhelmet.Stats[0])}</td>
+              <td>{formatNum(myhelmet.Stats[1])}</td>
+              <td>{formatNum(myhelmet.Stats[2])}</td>
+              <td>{formatNum(myhelmet.Stats[3])}</td>
+              <td>{formatNum(myhelmet.Stats[4])}</td>
+             </tr>
+             <tr>
+              <td>Arms</td>
+              <td>{formatNum(mygloves.Stats[0])}</td>
+              <td>{formatNum(mygloves.Stats[1])}</td>
+              <td>{formatNum(mygloves.Stats[2])}</td>
+              <td>{formatNum(mygloves.Stats[3])}</td>
+              <td>{formatNum(mygloves.Stats[4])}</td>
+             </tr>
+             <tr>
+              <td>Body</td>
+              <td>{formatNum(mychest.Stats[0])}</td>
+              <td>{formatNum(mychest.Stats[1])}</td>
+              <td>{formatNum(mychest.Stats[2])}</td>
+              <td>{formatNum(mychest.Stats[3])}</td>
+              <td>{formatNum(mychest.Stats[4])}</td>
+              
+             </tr>
+             <tr>
+              <td>Legs</td>
+              <td>{formatNum(myshoes.Stats[0])}</td>
+              <td>{formatNum(myshoes.Stats[1])}</td>
+              <td>{formatNum(myshoes.Stats[2])}</td>
+              <td>{formatNum(myshoes.Stats[3])}</td>
+              <td>{formatNum(myshoes.Stats[4])}</td>
+             </tr>
 
         </table>
        <br></br>
        <br></br>
-        <table>
+        <table class="center">
           <thead>
             <tr>
-              <th><button onClick={()=> setChar(Roster.Mario)}>Mario</button></th>
+              <th><button class="button-5" onClick={()=> setChar(Roster.Mario)}>Mario</button></th>
               <th><button onClick={()=> setChar(Roster.Luigi)}>Luigi</button></th>
               <th><button onClick={()=> setChar(Roster.Bowser)}>Bowser</button></th>
               <th><button onClick={()=> setChar(Roster.Peach)}>Peach</button></th>
               <th><button onClick={()=> setChar(Roster.Rosalina)}>Rosalina</button></th>
+            </tr>
+            <tr>
               <th><button onClick={()=> setChar(Roster.Toad)}>Toad</button></th>
               <th><button onClick={()=> setChar(Roster.Yoshi)}>Yoshi</button></th>
               <th><button onClick={()=> setChar(Roster.Dk)}>Donkey Kong</button></th>
@@ -210,7 +281,7 @@ const App = () => {
           </thead>
         </table>
         <br></br><br></br>
-        <table>
+        <table class="center">
 <thead>
   <tr>
     <th><button onClick={()=> updateHelmet(Head.Muscle)}>Muscle Helmet</button></th>
@@ -256,7 +327,7 @@ const App = () => {
         <br></br>
         <br></br>
 
-        <table>
+        <table class="center">
           <tr>
             <th>Strength</th>
               <th>Speed</th>
@@ -271,11 +342,26 @@ const App = () => {
             <th><input type="number" id="inputPas"></input></th>
             <th><input type="number" id="inputTch"></input></th>
           </tr>
-          <tr><button onClick={()=> findBuild(document.getElementById("inputStr").value,document.getElementById("inputSpd").value,document.getElementById("inputSht").value,document.getElementById("inputPas").value,document.getElementById("inputTch").value)}>Calculate Build</button></tr>
+          <tr>
+            <td colSpan={5}>
+            <button class="submitButton" onClick={()=> findBuild(
+              document.getElementById("inputStr").value,
+              document.getElementById("inputSpd").value,
+              document.getElementById("inputSht").value,
+              document.getElementById("inputPas").value,
+              document.getElementById("inputTch").value)}>Calculate Build
+            </button>
 
+            </td>
+          </tr>
         </table>
 
-        <table>
+         
+
+
+
+
+        <table class="center">
             <tr>
               <th>Gloves</th>
               <th>Arms</th>
@@ -291,7 +377,6 @@ const App = () => {
 
         </table>
       </div>
-    </>
   );
 };
 

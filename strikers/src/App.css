@@ -1,4 +1,125 @@
 table, th, td {
     border: 1px solid black;
+    font-size: 20px;
     border-collapse: collapse;
+    background-color: aquamarine;
+
   }
+
+p{
+    text-align: center;
+    font-size:20px;
+    color: rgb(0, 0, 0);
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color:rgb(0, 0, 0);
+}
+
+h2 {
+    text-align: center;
+    font-size:30px;
+    color:rgb(240, 78, 35)
+}
+
+h3 {
+    text-align: center;
+    font-size:30px;
+    color:rgb(240, 78, 35)
+}
+
+
+/* CSS */
+button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #0de3ff;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgb(29, 38, 39);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+button:hover {
+  background-color: #4beaff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+
+h4 {
+    text-align: center;
+    font-size:30px;
+    color:rgb(240, 78, 35)
+}
+
+button{
+  width: 100%;
+  /*background-color: aquamarine;
+ 
+  padding: 15px 10px;
+  font-size: 20px;
+ /* table-layout: fixed;
+  border-collapse: collapse;*/
+ 
+}
+
+input{
+  height: 40px;
+  width:80px;
+  background-color: aquamarine;
+}
+input[type="number"]{
+  font-size: 30px;
+}
+
+.body {
+  background-color: cornflowerblue;
+}
+
+hr{
+  height: 2px;
+  background-color: rgb(0, 0, 0);
+  border: none;
+}
+
+.submitButton {
+  padding: 20px 40px;
+  }
+
+.centerImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+
