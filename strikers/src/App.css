@@ -29,6 +29,10 @@ h3 {
     font-size:30px;
     color:rgb(240, 78, 35)
 }
+div {
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+}
 
 
 /* CSS */
@@ -44,7 +48,7 @@ button {
   cursor: pointer;
   display: inline-flex;
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   justify-content: center;
   line-height: 1.25;
@@ -68,6 +72,17 @@ button:hover {
 
 button:hover {
   transform: translateY(-1px);
+}
+
+.buttonContainer {
+  width: 20%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.copyBuild {
+  font-size: 14px;
+  height: 16px;
 }
 
 

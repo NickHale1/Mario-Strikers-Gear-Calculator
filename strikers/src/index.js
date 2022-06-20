@@ -24,7 +24,7 @@ const App = () => {
   const [mygloves, setGloves] = useState(Gloves.None);
   const [mychest, setChest] = useState(Chest.None);
   const [myshoes, setShoes] = useState(Shoes.None);
-  const [myBuild, setBuild] = useState(9999);
+  const [myBuild, setBuild] = useState(0);
   const [gearRec, setRec] = useState([Gloves.None,Gloves.None,Gloves.None,Gloves.None])
  
   const emptyBuild=[Gloves.None,Gloves.None,Gloves.None,Gloves.None]
@@ -43,7 +43,7 @@ const App = () => {
     setGloves(Gloves.None)
     setChest(Chest.None)
     setShoes(Shoes.None)
-    setBuild(9999)
+    setBuild(0)
   }
   function updateGloves(glove) {
     setGloves(glove)
@@ -95,7 +95,7 @@ const App = () => {
       case "Chain": return 4;
       case "Trick": return 5;
       case "Bushido": return 6;
-      default: return 9;
+      default: return 0;
     }
   }
 
@@ -107,7 +107,7 @@ const App = () => {
       case "Chain": return 4;
       case "Trick": return 5;
       case "Bushido": return 6;
-      default: return 9;
+      default: return 0;
     }
   }
 
@@ -119,7 +119,7 @@ const App = () => {
       case "Chain": return 4;
       case "Trick": return 5;
       case "Bushido": return 6;
-      default: return 9;
+      default: return 0;
     }
   }
 
@@ -131,7 +131,7 @@ const App = () => {
       case "Chain": return 4;
       case "Trick": return 5;
       case "Bushido": return 6;
-      default: return 9;
+      default: return 0;
     }
   }
 
@@ -182,7 +182,7 @@ const App = () => {
       case 4: updateHelmet(Head.Chain);
       case 5: updateHelmet(Head.Trick);
       case 6: updateHelmet(Head.Bushido);
-      case 9: updateHelmet(Head.None);
+      default: updateHelmet(Head.None);
     }
 
     switch(nums[1]){
@@ -216,14 +216,31 @@ const App = () => {
     }
   }
 
+  async function copyBuild() {
+    if('clipboard' in navigator){
+      return await navigator.clipboard.writeText(currentBuildString())
+    } else {
+      return document.execCommand('copy',true, currentBuildString())
+
+    }
+
+  }
+
+  function currentBuildString() {
+    return (myChar.name+ " (" + myBuild +") " + str+ "/"+ spd+ "/"+shoot+"/"+pass+"/"+tech)
+  }
+
 
   return (
     <div class="body">
-   
-
+      
+      
       <h1>Your character is: {myChar.name}</h1>
-      <img src={myChar.img} class="centerImage"></img>
-      <p>Build Code: {myBuild}</p> 
+      <img src={myChar.img} class="centerImage" alt={myChar.name}></img>
+      <p>Build Code: {myBuild}</p>
+      <div class="buttonContainer">
+        <button class="copyBuild" onClick={()=> copyBuild()}>Copy Build</button> 
+      </div>
       <hr/>
       <table class="center">
             <tr>
@@ -326,8 +343,8 @@ const App = () => {
         <br></br><br></br>
         <table class="center">
 <thead>
-<tr>
-    <th><button onClick={()=> updateHelmet(Head.None)}>No Helmet</button></th>
+  <tr>
+  <th><button onClick={()=> updateHelmet(Head.None)}>No Helmet</button></th>
     <th><button onClick={()=> updateGloves(Gloves.None)}>No Gauntlets</button></th>
     <th><button onClick={()=> updateChest(Chest.None)}>No Chest</button></th>
     <th><button onClick={()=> updateShoes(Shoes.None)}>No Boots</button></th>
