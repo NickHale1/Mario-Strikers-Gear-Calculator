@@ -48,7 +48,7 @@ let Roster = {
         name: "Princess Peach",
         Strength:9,
         Speed:17,
-        Shooting:11,
+        Shooting:9,
         Passing:13,
         Tech:15,
         img:"https://mario.wiki.gallery/images/thumb/d/d2/MSBL_Peach_Artwork.png/120px-MSBL_Peach_Artwork.png"

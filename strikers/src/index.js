@@ -173,11 +173,54 @@ const App = () => {
     }
   }
 
+  function readCode(myCode){
+    let nums=myCode.split("")
+    switch(nums[0]){
+      case 1: updateHelmet(Head.Muscle);
+      case 2: updateHelmet(Head.Turbo);
+      case 3: updateHelmet(Head.Cannon);
+      case 4: updateHelmet(Head.Chain);
+      case 5: updateHelmet(Head.Trick);
+      case 6: updateHelmet(Head.Bushido);
+      case 9: updateHelmet(Head.None);
+    }
+
+    switch(nums[1]){
+      case 1: updateGloves(Gloves.Muscle);
+      case 2: updateGloves(Gloves.Turbo);
+      case 3: updateGloves(Gloves.Cannon);
+      case 4: updateGloves(Gloves.Chain);
+      case 5: updateGloves(Gloves.Trick);
+      case 6: updateGloves(Gloves.Bushido);
+      default: updateGloves(Gloves.None);
+    }
+
+    switch(nums[2]){
+      case 1: updateChest(Chest.Muscle);
+      case 2: updateChest(Chest.Turbo);
+      case 3: updateChest(Chest.Cannon);
+      case 4: updateChest(Chest.Chain);
+      case 5: updateChest(Chest.Trick);
+      case 6: updateChest(Chest.Bushido);
+      default: updateChest(Chest.None);
+    }
+
+    switch(nums[3]){
+      case 1: updateShoes(Shoes.Muscle);
+      case 2: updateShoes(Shoes.Turbo);
+      case 3: updateShoes(Shoes.Cannon);
+      case 4: updateShoes(Shoes.Chain);
+      case 5: updateShoes(Shoes.Trick);
+      case 6: updateShoes(Shoes.Bushido);
+      default: updateShoes(Shoes.None);
+    }
+  }
+
 
   return (
     <div class="body">
    
-<button class="button-5" role="button">Button 5</button>
+
       <h1>Your character is: {myChar.name}</h1>
       <img src={myChar.img} class="centerImage"></img>
       <p>Build Code: {myBuild}</p> 
@@ -283,6 +326,12 @@ const App = () => {
         <br></br><br></br>
         <table class="center">
 <thead>
+<tr>
+    <th><button onClick={()=> updateHelmet(Head.None)}>No Helmet</button></th>
+    <th><button onClick={()=> updateGloves(Gloves.None)}>No Gauntlets</button></th>
+    <th><button onClick={()=> updateChest(Chest.None)}>No Chest</button></th>
+    <th><button onClick={()=> updateShoes(Shoes.None)}>No Boots</button></th>
+  </tr>
   <tr>
     <th><button onClick={()=> updateHelmet(Head.Muscle)}>Muscle Helmet</button></th>
     <th><button onClick={()=> updateGloves(Gloves.Muscle)}>Muscle Gauntlets</button></th>
@@ -363,7 +412,7 @@ const App = () => {
 
         <table class="center">
             <tr>
-              <th>Gloves</th>
+              <th>Head</th>
               <th>Arms</th>
               <th>Body</th>
               <th>Legs</th>
