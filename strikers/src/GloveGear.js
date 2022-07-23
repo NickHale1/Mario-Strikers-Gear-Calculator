@@ -28,6 +28,10 @@ let Gloves= {
     Bushido:{
         Name: "Bushido",
         Stats:[-1,-1,-1,-1,4]
+    },
+    Knight:{
+        Name: "Knight",
+        Stats:[+2,+1,+1,-2,-2]
     }
 };
 
