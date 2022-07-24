@@ -338,7 +338,7 @@ const App = () => {
               <th><button onClick={()=> setChar(Roster.Bowser)}>Bowser</button></th>
               <th><button onClick={()=> setChar(Roster.Peach)}>Peach</button></th>
               <th><button onClick={()=> setChar(Roster.Rosalina)}>Rosalina</button></th>
-              <th><button onClick={()=> setChar(Roster.ShyGuy)}>Shy Guy</button></th>
+              <th><button onClick={()=> setChar(Roster.Daisy)}>Daisy</button></th>
             </tr>
             <tr>
               <th><button onClick={()=> setChar(Roster.Toad)}>Toad</button></th>
@@ -346,7 +346,7 @@ const App = () => {
               <th><button onClick={()=> setChar(Roster.Dk)}>Donkey Kong</button></th>
               <th><button onClick={()=> setChar(Roster.Wario)}>Wario</button></th>
               <th><button onClick={()=> setChar(Roster.Waluigi)}>Waluigi</button></th>
-              <th><button onClick={()=> setChar(Roster.Daisy)}>Daisy</button></th>
+              <th><button onClick={()=> setChar(Roster.ShyGuy)}>Shy Guy</button></th>
              </tr>
           </thead>
         </table>
