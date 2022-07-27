@@ -27,6 +27,10 @@ let Shoes= {
     Bushido:{
         Name: "Bushido",
         Stats:[-1,4,-1,-1,-1]
+    },
+    Knight:{
+        Name: "Knight",
+        Stats:[+2,-2,+2,-1,-1]
     }
 };
 

@@ -89,6 +89,24 @@ let Roster = {
         Tech:13,
         img:"https://mario.wiki.gallery/images/thumb/0/06/MSBL_Rosalina_Artwork.png/120px-MSBL_Rosalina_Artwork.png"
     },
+    Daisy: {
+        name: "Daisy",
+        Strength:13,
+        Speed:9,
+        Shooting:10,
+        Passing:13,
+        Tech:18,
+        img:"https://mario.wiki.gallery/images/thumb/b/be/MSBL_Daisy_Artwork.png/200px-MSBL_Daisy_Artwork.png"
+    },
+    ShyGuy: {
+        name: "Shy Guy",
+        Strength:13,
+        Speed:12,
+        Shooting:13,
+        Passing:13,
+        Tech:12,
+        img:"https://mario.wiki.gallery/images/thumb/7/7d/MSBL_Shy_Guy_Artwork.png/200px-MSBL_Shy_Guy_Artwork.png"
+    },
     Boom: {
         name: "Boom Boom",
         Strength:9999,

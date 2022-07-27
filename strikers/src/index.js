@@ -28,10 +28,10 @@ const App = () => {
   const [gearRec, setRec] = useState([Gloves.None,Gloves.None,Gloves.None,Gloves.None])
  
   const emptyBuild=[Gloves.None,Gloves.None,Gloves.None,Gloves.None]
-  const helm=[Head.Muscle,Head.Turbo,Head.Cannon,Head.Chain,Head.Trick,Head.Bushido]
-  const arms=[Gloves.Muscle,Gloves.Turbo,Gloves.Cannon,Gloves.Chain,Gloves.Trick,Gloves.Bushido]
-  const body=[Chest.Muscle,Chest.Turbo,Chest.Cannon,Chest.Chain,Chest.Trick,Chest.Bushido]
-  const legs=[Shoes.Muscle,Shoes.Turbo,Shoes.Cannon,Shoes.Chain,Shoes.Trick,Shoes.Bushido]
+  const helm=[Head.Muscle,Head.Turbo,Head.Cannon,Head.Chain,Head.Trick,Head.Bushido,Head.Knight]
+  const arms=[Gloves.Muscle,Gloves.Turbo,Gloves.Cannon,Gloves.Chain,Gloves.Trick,Gloves.Bushido,Gloves.Knight]
+  const body=[Chest.Muscle,Chest.Turbo,Chest.Cannon,Chest.Chain,Chest.Trick,Chest.Bushido,Chest.Knight]
+  const legs=[Shoes.Muscle,Shoes.Turbo,Shoes.Cannon,Shoes.Chain,Shoes.Trick,Shoes.Bushido,Shoes.Knight]
   function setChar(char){
     setCharacter(char)
     setStrength(char.Strength)
@@ -95,6 +95,7 @@ const App = () => {
       case "Chain": return 4;
       case "Trick": return 5;
       case "Bushido": return 6;
+      case "Knight": return 7;
       default: return 0;
     }
   }
@@ -107,6 +108,7 @@ const App = () => {
       case "Chain": return 4;
       case "Trick": return 5;
       case "Bushido": return 6;
+      case "Knight": return 7;
       default: return 0;
     }
   }
@@ -119,6 +121,7 @@ const App = () => {
       case "Chain": return 4;
       case "Trick": return 5;
       case "Bushido": return 6;
+      case "Knight": return 7;
       default: return 0;
     }
   }
@@ -131,6 +134,7 @@ const App = () => {
       case "Chain": return 4;
       case "Trick": return 5;
       case "Bushido": return 6;
+      case "Knight": return 7;
       default: return 0;
     }
   }
@@ -182,6 +186,7 @@ const App = () => {
       case 4: updateHelmet(Head.Chain);
       case 5: updateHelmet(Head.Trick);
       case 6: updateHelmet(Head.Bushido);
+      case 7: updateHelmet(Head.Knight);
       default: updateHelmet(Head.None);
     }
 
@@ -192,6 +197,7 @@ const App = () => {
       case 4: updateGloves(Gloves.Chain);
       case 5: updateGloves(Gloves.Trick);
       case 6: updateGloves(Gloves.Bushido);
+      case 7: updateGloves(Gloves.Knight);
       default: updateGloves(Gloves.None);
     }
 
@@ -202,6 +208,7 @@ const App = () => {
       case 4: updateChest(Chest.Chain);
       case 5: updateChest(Chest.Trick);
       case 6: updateChest(Chest.Bushido);
+      case 7: updateChest(Chest.Knight);
       default: updateChest(Chest.None);
     }
 
@@ -212,6 +219,7 @@ const App = () => {
       case 4: updateShoes(Shoes.Chain);
       case 5: updateShoes(Shoes.Trick);
       case 6: updateShoes(Shoes.Bushido);
+      case 7: updateShoes(Shoes.Knight);
       default: updateShoes(Shoes.None);
     }
   }
@@ -330,13 +338,16 @@ const App = () => {
               <th><button onClick={()=> setChar(Roster.Bowser)}>Bowser</button></th>
               <th><button onClick={()=> setChar(Roster.Peach)}>Peach</button></th>
               <th><button onClick={()=> setChar(Roster.Rosalina)}>Rosalina</button></th>
+              <th><button onClick={()=> setChar(Roster.Toad)}>Toad</button></th>
             </tr>
             <tr>
-              <th><button onClick={()=> setChar(Roster.Toad)}>Toad</button></th>
+              
               <th><button onClick={()=> setChar(Roster.Yoshi)}>Yoshi</button></th>
               <th><button onClick={()=> setChar(Roster.Dk)}>Donkey Kong</button></th>
               <th><button onClick={()=> setChar(Roster.Wario)}>Wario</button></th>
               <th><button onClick={()=> setChar(Roster.Waluigi)}>Waluigi</button></th>
+              <th><button onClick={()=> setChar(Roster.Daisy)}>Daisy</button></th>
+              <th><button onClick={()=> setChar(Roster.ShyGuy)}>Shy Guy</button></th>
              </tr>
           </thead>
         </table>
@@ -386,6 +397,12 @@ const App = () => {
     <th><button onClick={()=> updateGloves(Gloves.Bushido)}>Bushido Gauntlets</button></th>
     <th><button onClick={()=> updateChest(Chest.Bushido)}>Bushido Chest</button></th>
     <th><button onClick={()=> updateShoes(Shoes.Bushido)}>Bushido Boots</button></th>
+  </tr>
+  <tr>
+    <th><button onClick={()=> updateHelmet(Head.Knight)}>Knight Helmet</button></th>
+    <th><button onClick={()=> updateGloves(Gloves.Knight)}>Knight Gauntlets</button></th>
+    <th><button onClick={()=> updateChest(Chest.Knight)}>Knight Chest</button></th>
+    <th><button onClick={()=> updateShoes(Shoes.Knight)}>Knight Boots</button></th>
   </tr>
 </tbody>
         </table>

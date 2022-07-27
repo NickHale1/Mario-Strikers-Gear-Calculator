@@ -27,6 +27,10 @@ let Chest= {
     Bushido:{
         Name: "Bushido",
         Stats:[4,-1,-1,-1,-1]
+    },
+    Knight:{
+        Name: "Knight",
+        Stats:[+2,-2,+1,-2,+1]
     }
 };
 
